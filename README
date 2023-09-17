@@ -1,0 +1,10 @@
+### Projeto de PIN3
+
+Vai precisar instalar as seguintes dependências(crie um venv para facilitar):
+* django
+
+Para rodar o projeto:
+
+```
+python manage.py runserver
+`
