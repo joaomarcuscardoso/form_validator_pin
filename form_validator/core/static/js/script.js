@@ -16,8 +16,9 @@ $(document).ready(function() {
     });
 
     $("#btn-show-upload").click(function() {
-        $("#container-upload-file").toggle();
+        $("#container-upload-file").show();
         $('.file-input').click();
+        $(this).hide();
     })
 
     $("#btn-send-file").click(function() {

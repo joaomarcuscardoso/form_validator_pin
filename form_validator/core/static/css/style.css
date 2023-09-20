@@ -18,6 +18,7 @@ body {
 .btn-group {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 25px;
 }
 .btn-group button {
     font-size: 32px;
@@ -40,7 +41,7 @@ body {
 }
 
 #btn-show-upload {
-    margin: 6% 15% 6% 15%;
+    margin: 0 15% 6% 15%;
     width: 70%;
     padding: 15px;
     border-radius: 15px;
