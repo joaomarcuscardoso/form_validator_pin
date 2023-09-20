@@ -1,0 +1,62 @@
+body {
+    background-color : #eee;
+}
+.t {
+    background-color: "red";
+}
+
+.main-container {
+    margin-top: 12%;
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #454545;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+}
+.btn-group button {
+    font-size: 32px;
+    width: 100px;
+    height: 100px;
+}
+
+.btn-group svg {
+    color: #454545;
+}
+
+.arrow-connector {
+    width: 0;
+    height: 0;
+    border-left: 10px solid black;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+#btn-show-upload {
+    margin: 6% 15% 6% 15%;
+    width: 70%;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.file-input {
+    margin-left: 10px;
+}
+
+#span-input {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#container-upload-file {
+    padding: 10px;
+    display: none;
+}
