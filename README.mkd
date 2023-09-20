@@ -5,7 +5,12 @@ Vai precisar instalar as seguintes dependências(crie um venv para facilitar):
 
 Para rodar o projeto:
 
+1 - Activa o ambiente do python
 ```
-source ./env/bin/active 
-python manage.py runserver
-`
+$ source ./env/bin/active 
+```
+
+2 - Rodar o server
+```
+$ python manage.py runserver
+```
