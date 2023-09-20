@@ -6,5 +6,6 @@ Vai precisar instalar as seguintes dependências(crie um venv para facilitar):
 Para rodar o projeto:
 
 ```
+source ./env/bin/active 
 python manage.py runserver
 `
