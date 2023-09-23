@@ -12,5 +12,10 @@ $ source ./env/bin/active
 
 2 - Rodar o server
 ```
-$ python manage.py runserver
+$ make
+```
+
+3- Rodar migrate
+```
+$ make migrate
 ```
