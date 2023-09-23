@@ -7,7 +7,7 @@ from core.helpers import save_upload_pdf
 
 # Create your views here.
 def index(request):
-    if (request.method == 'POST' and request.FILES['mark_file']) :
+    if (request.method == 'POST' and request.FILES['mark_file'] and request.POST.get('name')):
         name = request.POST.get('name')
         file = request.FILES['mark_file']
         file_path = save_upload_pdf(name, file, 'original')
