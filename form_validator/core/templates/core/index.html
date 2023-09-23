@@ -30,12 +30,14 @@
           <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id="btn-show-upload">Envie seu PDF com os Marcadores</a>
         </div>
 
-        <form action="/upload" method="post" id="file-form" enctype="multipart/form-data">
+        <form method="post" id="file-form" enctype="multipart/form-data">
+          {% csrf_token %}
+
           <div class="input-group" id="container-upload-file">
             <span class="input-group-text" id="span-input">
               <div>
                 PDF selecionado: 
-               <input type="file" class="file-input" accept="application/pdf">
+               <input type="file" class="file-input" name="mark_file" accept="application/pdf">
               </div>
               <div>
                <input class="btn btn-primary btn-lg btn-block" id="input-submit" type="submit" value="Enviar">
