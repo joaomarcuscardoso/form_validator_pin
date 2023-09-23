@@ -2,59 +2,52 @@
 {% block title %}Passo 01{% endblock %}
 {% block content %}
 
-<div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-        <h2 id="title">Envie formulários preenchidos e gerar um xls com dados processados</h2>
+<h2 id="title">Envie formulários preenchidos e gerar um xls com dados processados</h2>
 
-        <div class="btn-group" role="group" aria-label="Group steps">
-            <button type="button" class="btn btn-primary rounded-circle btn-step" data-step="1">1</button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
+<div class="btn-group" role="group" aria-label="Group steps">
+    <button type="button" class="btn btn-primary rounded-circle btn-step" data-step="1">1</button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
 
-            <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="2">2</button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
+    <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="2">2</button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
 
-            <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="3">3</button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
+    <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="3">3</button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
 
-            <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="4">4</button>
-        </div>
+    <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="4">4</button>
+</div>
 
-        <div class="form-input">
-          <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id="btn-show-upload">Envie seu PDF com os Marcadores</a>
-        </div>
+<div class="form-input">
+  <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id="btn-show-upload">Envie seu PDF com os Marcadores</a>
+</div>
 
-        <form method="post" id="file-form" enctype="multipart/form-data">
-          {% csrf_token %}
+<form method="post" id="file-form" enctype="multipart/form-data">
+  {% csrf_token %}
 
-          <div class="input-group" id="container-upload-file">
+  <div class="input-group" id="container-upload-file">
 
-            <div class="form-group"> 
-              <label for="name_pdf">Nome do PDF</label> 
-              <input type="text" name="name" class="form-control" id="name_pdf" placeholder="Digite um nome" required>
-            </div>
-
-            <br />
-
-            <span class="input-group-text" id="span-input">
-              <div>
-                PDF selecionado: 
-               <input type="file" class="file-input" name="mark_file" accept="application/pdf">
-              </div>
-              <div>
-               <input class="btn btn-primary btn-lg btn-block" id="input-submit" type="submit" value="Enviar">
-              </div>
-            </span>
-          </div>
-        </form>
+    <div class="form-group"> 
+      <label for="name_pdf">Nome do PDF</label> 
+      <input type="text" name="name" class="form-control" id="name_pdf" placeholder="Digite um nome" required>
     </div>
 
-    <div class="col-sm-2"></div>
-</div>
+    <br />
+
+    <span class="input-group-text" id="span-input">
+      <div>
+        PDF selecionado: 
+       <input type="file" class="file-input" name="mark_file" accept="application/pdf">
+      </div>
+      <div>
+       <input class="btn btn-primary btn-lg btn-block" id="input-submit" type="submit" value="Enviar">
+      </div>
+    </span>
+  </div>
+</form>
 {% endblock %}
