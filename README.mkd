@@ -14,8 +14,14 @@ $ source ./env/bin/active
 ```
 $ make
 ```
+3 - Crie o banco de dados postgresql
+``` 
+$ CREATE DATABASE form_validator
+```
 
-3- Rodar migrate
+4 - Alterer a variavel DATABASES no arquivo settings.py
+
+5- Rodar migrate
 ```
 $ make migrate
 ```

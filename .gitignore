@@ -88,3 +88,7 @@ local_settings.py
 db.sqlite3
 
 form_validator/media/pdf_uploads/*
+
+form_validator/core/static/*
+
+node_modules

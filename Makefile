@@ -1,4 +1,4 @@
-.PHONY: default run migrate
+.PHONY: default run migrate build
 # Variables
 APP_NAME=form_validator
 
