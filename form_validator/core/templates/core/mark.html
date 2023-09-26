@@ -22,4 +22,18 @@
 
     <button type="button" class="btn btn-secondary rounded-circle btn-step" data-step="4">4</button>
 </div>
+
+<div class="container-mark">
+
+    <div class="btn-marks-container">
+        <button type="button" class="btn btn-primary btn-block" id="btn-show-crop">Recortar</button>
+        <button type="button" class="btn btn-primary btn-block" id="btn-crop">Salvar</button>
+    </div>
+
+    <div id="croup-container">
+        <img class="img img-fluid" src="{{ form.image }}" alt="{{ form.name }}" id="mark-original"/>
+    </div>
+
+    <img class="img-fluid" src="{{ form.image }}" alt="{{ form.name }}" id="mark-dist"/>
+</div>
 {% endblock %}

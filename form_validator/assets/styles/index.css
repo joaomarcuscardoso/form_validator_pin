@@ -61,3 +61,27 @@ body {
     padding: 10px;
     display: none;
 }
+
+.container-mark {
+    margin: 30px 0px 80px 0px;
+}
+
+.btn-marks-container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-marks-container button {
+    width: 47%;
+}
+
+#croup-container {
+    padding: 40px;
+    display: none;
+}
+
