@@ -5,6 +5,12 @@ Vai precisar instalar as seguintes dependências(crie um venv para facilitar):
 
 Para rodar o projeto:
 
+### USANDO DOCKER
+```
+$ docker compose up --build
+```
+
+### MANUAL
 1 - Activa o ambiente do python
 ```
 $ source ./env/bin/active 
@@ -25,3 +31,4 @@ $ CREATE DATABASE form_validator
 ```
 $ make migrate
 ```
+
