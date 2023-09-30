@@ -6,7 +6,7 @@ APP_NAME=form_validator
 default: run
 
 run:
-	env/bin/python form_validator/manage.py runserver 
+	env/bin/python manage.py runserver 
 migrate:
-	env/bin/python form_validator/manage.py migrate
+	env/bin/python manage.py migrate
 

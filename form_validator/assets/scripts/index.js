@@ -58,4 +58,13 @@ $(document).ready(function() {
 
         $('#mark-dist').show();
     });
+
+    // window.alert('b');
+    $('#select-numbered-marks').on('change', function() {
+        // window.alert('a');
+        console.log($(this).val());
+        let quantityMark= $(this).val();
+        $(".container-marks-inputs").html('<input type="text" class="form-control" id="mark' + quantityMark +'" placeholder="Marcador 1">');
+        $(".container-marks-inputs").html('<img class="img img-fluid" src="/static/mark.png" alt="fffff" id="mark' + quantityMark +'" width="60px">');
+    });
 });
