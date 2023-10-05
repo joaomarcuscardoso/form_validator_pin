@@ -70,6 +70,15 @@ $(document).ready(function() {
     var $selectedDiv = null;
     var $mouseX, $mouseY, $xp = 0, $yp = 0;
 
+    // Função para mover imagens
+    function moveImage($selectedDiv, e) {
+        $mouseX = e.pageX - 15;
+        $mouseY = e.pageY - 15;
+        $xp += (($mouseX - $xp) / 12);
+        $yp += (($mouseY - $yp) / 12);
+        $selectedDiv.css({ left: $xp + 'px', top: $yp + 'px' });
+    }
+
     $('.mark-image').click(function(e) {
         if (!$move) {
             $selectedDiv = $(this);
@@ -82,18 +91,61 @@ $(document).ready(function() {
 
     $(document).mousemove(function(e) {
         if ($move && $selectedDiv !== null) {
-            $mouseX = e.pageX - 15;
-            $mouseY = e.pageY - 15;
-            $xp += (($mouseX - $xp) / 12);
-            $yp += (($mouseY - $yp) / 12);
-            $selectedDiv.css({ left: $xp + 'px', top: $yp + 'px' });
+            moveImage($selectedDiv, e);
         }
     });
+
     $("#mark-width").focusout(function() {
         $(".mark-image").css("width", $(this).val() + "px");
-    })
+    });
 
     $("#mark-height").focusout(function() {
         $(".mark-image").css("height", $(this).val() + "px");
-    })
+    });
+
+    // Gere uma nova imagem
+    $("#btn-generate").click(function() {
+        const containerMarksInputs = document.querySelector('.container-marks-inputs');
+        const lastImage = containerMarksInputs.querySelector('img:last-child');
+
+        if (lastImage) {
+            const numImages = 1;
+            const spacing = 20;
+
+            for (let i = 0; i < numImages; i++) {
+                const newImage = document.createElement('img');
+                newImage.className = 'img img-fluid mark-image';
+                newImage.src = lastImage.src;
+
+                const referenceImageTop = lastImage.offsetTop;
+                const referenceImageLeft = lastImage.offsetLeft;
+
+                newImage.style.position = 'absolute';
+                newImage.style.left = `${referenceImageLeft}px`;
+                newImage.style.top = `${referenceImageTop + lastImage.height + spacing}px`;
+                newImage.style.width = `${lastImage.width}px`;
+                newImage.style.height = `${lastImage.height}px`;
+
+                // Adicione a imagem ao contêiner
+                $(".container-marks-inputs").append(newImage);
+
+                // Adicione o evento de clique e movimento para a imagem gerada
+                $(newImage).click(function(e) {
+                    if (!$move) {
+                        $selectedDiv = $(this);
+                        $move = true;
+                    } else {
+                        $selectedDiv = null;
+                        $move = false;
+                    }
+                });
+
+                $(document).mousemove(function(e) {
+                    if ($move && $selectedDiv !== null) {
+                        moveImage($selectedDiv, e);
+                    }
+                });
+            }
+        }
+    });
 });

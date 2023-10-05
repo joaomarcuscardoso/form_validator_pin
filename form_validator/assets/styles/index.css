@@ -91,8 +91,11 @@ body {
 #croup-container {
     display: none;
 }
+.container-marks-inputs {
+}
 
 .container-marks-inputs img {
+    background-color: inviside;
     margin-right: 10%;
     position: absolute;
     width: 50px;
