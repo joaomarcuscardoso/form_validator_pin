@@ -41,7 +41,8 @@ $(document).ready(function() {
         if (image) {
             cropper = new Cropper(image, {
                 aspectRatio: 0,
-                viewMode: 0
+                viewMode: 0,
+                zoom: 0
             })
             $('#mark-dist').hide();
 
@@ -59,12 +60,40 @@ $(document).ready(function() {
         $('#mark-dist').show();
     });
 
-    // window.alert('b');
     $('#select-numbered-marks').on('change', function() {
-        // window.alert('a');
-        console.log($(this).val());
-        let quantityMark= $(this).val();
-        $(".container-marks-inputs").html('<input type="text" class="form-control" id="mark' + quantityMark +'" placeholder="Marcador 1">');
-        $(".container-marks-inputs").html('<img class="img img-fluid" src="/static/mark.png" alt="fffff" id="mark' + quantityMark +'" width="60px">');
+        let quantityMark = $(this).val();
+        $(".container-marks-inputs").html('<input type="text" class="form-control" id="mark' + quantityMark + '" placeholder="Marcador 1">');
+        $(".container-marks-inputs").html('<img class="img img-fluid" src="/static/mark.png" alt="fffff" id="mark' + quantityMark + '" width="60px">');
     });
+
+    var $move = false;
+    var $selectedDiv = null;
+    var $mouseX, $mouseY, $xp = 0, $yp = 0;
+
+    $('.mark-image').click(function(e) {
+        if (!$move) {
+            $selectedDiv = $(this);
+            $move = true;
+        } else {
+            $selectedDiv = null;
+            $move = false;
+        }
+    });
+
+    $(document).mousemove(function(e) {
+        if ($move && $selectedDiv !== null) {
+            $mouseX = e.pageX - 15;
+            $mouseY = e.pageY - 15;
+            $xp += (($mouseX - $xp) / 12);
+            $yp += (($mouseY - $yp) / 12);
+            $selectedDiv.css({ left: $xp + 'px', top: $yp + 'px' });
+        }
+    });
+    $("#mark-width").focusout(function() {
+        $(".mark-image").css("width", $(this).val() + "px");
+    })
+
+    $("#mark-height").focusout(function() {
+        $(".mark-image").css("height", $(this).val() + "px");
+    })
 });

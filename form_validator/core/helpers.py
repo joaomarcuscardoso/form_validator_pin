@@ -4,7 +4,7 @@ import hashlib
 from pdf2image.pdf2image import convert_from_path
 from .models import Form
 
-# type = 'original' or 'marked''
+# type = 'original' or 'marked'
 def save_upload_pdf(name, file, type_name = 'original')  :
     file_name = type_name + '_' + hashlib.md5(file.name.encode('utf-8')).hexdigest() + '.pdf'
 
