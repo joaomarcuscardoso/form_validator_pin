@@ -27,9 +27,13 @@
     <label>Quantidade de marcadores</label>
     <div class="container-fluid">
       <label>Largura da imagem</label>
-      <input class="form-control" type="number" name="width" id="mark-width" name="marks" min="10" max="300" />
+      <input class="form-control" type="number" name="width" id="mark-width" name="marks" min="10" max="300" value="50" />
       <label>Altura da imagem</label>
-      <input class="form-control" type="number" name="height" id="mark-height" name="marks" min="10" max="300" />
+      <input class="form-control" type="number" name="height" id="mark-height" name="marks" min="10" max="300" value="50" />
+      <label>Espaçamento</label>
+      <input class="form-control" type="number" name="height" id="mark-space" name="marks" min="50" max="300" value="50" />
+      <label>Quantidade de questão</label>
+      <input class="form-control" type="number" name="question" id="mark-question" name="marks" min="10" max="300" value="10"/>
     </div>
     <form class="form-group">
       <div class="container-marks-inputs">
@@ -43,10 +47,10 @@
 <div class="container-mark">
 
     <div class="btn-marks-container">
-        <button type="button" class="btn btn-primary btn-block" id="btn-show-crop">Recortar</button>
-        <button type="button" class="btn btn-primary btn-block" id="btn-crop">Salvar</button>
+        <button type="button" class="btn btn-primary btn-block" id="btn-show-crop">Fazer Recorte</button>
+        <button type="button" class="btn btn-primary btn-block" id="btn-crop">Salvar Recorte</button>
         <button type="button" class="btn btn-primary btn-block" id="btn-generate">Gerar marcadores</button>
-        <button type="button" class="btn btn-primary btn-block" id="btn-next">Avançar</button>
+        <button type="button" class="btn btn-primary btn-block" id="btn-next">Próxima Etapa</button>
     </div>
 
     <div id="croup-container">

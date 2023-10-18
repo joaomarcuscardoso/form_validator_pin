@@ -92,6 +92,8 @@ body {
     display: none;
 }
 .container-marks-inputs {
+    min-width: 60px;
+    min-height: 60px;
 }
 
 .container-marks-inputs img {

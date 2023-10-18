@@ -106,46 +106,50 @@ $(document).ready(function() {
     // Gere uma nova imagem
     $("#btn-generate").click(function() {
         const containerMarksInputs = document.querySelector('.container-marks-inputs');
-        const lastImage = containerMarksInputs.querySelector('img:last-child');
+        let lastImage = containerMarksInputs.querySelector('img:last-child');
+        const numImages = $('#mark-question').val();
+        let spacing = parseInt($('#mark-space').val());
 
-        if (lastImage) {
-            const numImages = 1;
-            const spacing = 20;
+        for (let i = 0; i < numImages; i++) {
+            const newImage = document.createElement('img');
+            lastImage = containerMarksInputs.querySelector('img:last-child');
+            newImage.className = 'img img-fluid mark-image';
+            newImage.src = lastImage.src;
 
-            for (let i = 0; i < numImages; i++) {
-                const newImage = document.createElement('img');
-                newImage.className = 'img img-fluid mark-image';
-                newImage.src = lastImage.src;
+            console.log(lastImage.offsetTop)
+            console.log("spacing: ", spacing)
+            const referenceImageTop = parseInt(lastImage.offsetTop) + spacing;
+            const referenceImageBottom = parseInt(lastImage.offsetBottom);
+            const referenceImageLeft = parseInt(lastImage.offsetLeft);
+            const referenceImageRight= parseInt(lastImage.offsetRight);
 
-                const referenceImageTop = lastImage.offsetTop;
-                const referenceImageLeft = lastImage.offsetLeft;
+            newImage.style.position = 'absolute';
+            newImage.style.left = `${referenceImageLeft}px`;
+            newImage.style.right = `${referenceImageRight}px`;
+            newImage.style.top = `${referenceImageTop}px`;
+            newImage.style.bottom = `${referenceImageBottom}px`;
+            newImage.style.width = `${lastImage.width}px`;
+            newImage.style.height = `${lastImage.height}px`;
 
-                newImage.style.position = 'absolute';
-                newImage.style.left = `${referenceImageLeft}px`;
-                newImage.style.top = `${referenceImageTop + lastImage.height + spacing}px`;
-                newImage.style.width = `${lastImage.width}px`;
-                newImage.style.height = `${lastImage.height}px`;
+            // Adicione a imagem ao contêiner
+            $(".container-marks-inputs").append(newImage);
 
-                // Adicione a imagem ao contêiner
-                $(".container-marks-inputs").append(newImage);
+            // Adicione o evento de clique e movimento para a imagem gerada
+            $(newImage).click(function(e) {
+                if (!$move) {
+                    $selectedDiv = $(this);
+                    $move = true;
+                } else {
+                    $selectedDiv = null;
+                    $move = false;
+                }
+            });
 
-                // Adicione o evento de clique e movimento para a imagem gerada
-                $(newImage).click(function(e) {
-                    if (!$move) {
-                        $selectedDiv = $(this);
-                        $move = true;
-                    } else {
-                        $selectedDiv = null;
-                        $move = false;
-                    }
-                });
-
-                $(document).mousemove(function(e) {
-                    if ($move && $selectedDiv !== null) {
-                        moveImage($selectedDiv, e);
-                    }
-                });
-            }
+            $(document).mousemove(function(e) {
+                if ($move && $selectedDiv !== null) {
+                    moveImage($selectedDiv, e);
+                }
+            });
         }
     });
 });
